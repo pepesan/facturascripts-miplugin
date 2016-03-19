@@ -1,0 +1,18 @@
+{include="header"}
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th class="text-left">Elemento</th>
+            <th class="text-left">Color</th>
+            <th class="text-right">peso</th>
+        </tr>
+    </thead>
+{loop="$fsc->variable1"}
+    <tr>
+        <td class="text-left">{$key}</td>
+        <td class="text-left">{$value['color']}</td>
+        <td class="text-right">{$value['peso']}</td>
+    </tr>
+{/loop}
+</table>
+{include="footer"}
