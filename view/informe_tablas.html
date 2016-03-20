@@ -1,0 +1,44 @@
+{include="header"}
+{if condition="$fsc->columnas"}
+<ol class="breadcrumb">
+    <li><a class="" href="{$fsc->url()}">Tablas</a></li>
+    <li><a class="active" href="">{$fsc->tabla}</a></li>
+
+</ol>
+
+<h1>Listado de Columnas de la tabla {$fsc->tabla}</h1>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th class="text-left">Nombre</th>
+            <th class="text-left">Tipo</th>
+            <th  class="text-left">Valor por defecto</th>
+            <th class="text-left">Nulos?</th>
+            <th class="text-right">Extra</th>
+        </tr>
+    </thead>
+    {loop="$fsc->columnas"}
+    <tr>
+        <td  class="text-left">{$value['column_name']}</td>
+        <td class="text-left">{$value['data_type']}</td>
+        <td class="text-left">{$value['column_default']}</td>
+        <td  class="text-left">{$value['is_nullable']}</td>
+        <td class="text-right">{$value['extra']}</td>
+    </tr>
+
+    {/loop}
+</table>
+{else}
+<h1>Listado de tablas</h1>
+<div class="container-fluid">
+    <div class="row">
+        {loop="$fsc->tablas"}
+        <div class="col-lg-2">
+            <a href="{$fsc->url()}&table={$value['name']}">{$value['name']}</a>
+        </div>
+        {/loop}
+    </div>
+</div>
+
+{/if}
+{include="footer"}
